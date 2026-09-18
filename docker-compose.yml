@@ -13,7 +13,7 @@ services:
     restart: always
     # restart: unless-stopped
     networks:
-      - web_network
+      - web_kitikon
   php:
     depends_on:
       - db
@@ -25,7 +25,7 @@ services:
       - "9000"
     restart: always
     networks:
-      - web_network
+      - web_kitikon
   nginx:
     image: nginx:stable-alpine
     container_name: lemp_nginx
@@ -37,8 +37,8 @@ services:
       - "8803:80"
     restart: always
     networks:
-      - web_network
+      - web_kitikon
 networks:
-  web_network:
+  web_kitikon:
     name: lemp
     driver: bridge
