@@ -1,7 +1,7 @@
 services:
   db:
     image: mariadb:latest
-    container_name: lemp_mariadb
+    container_name: lemp_mariadb03
     volumes:
       - ./mariadb/initdb/:/docker-entrypoint-initdb.d
       - ./mariadb/data/:/var/lib/mysql/
@@ -18,7 +18,7 @@ services:
     depends_on:
       - db
     build: php/
-    container_name: lemp_php
+    container_name: lemp_php03
     volumes:
       - ./public_html/:/var/www/html
     expose:
@@ -28,7 +28,7 @@ services:
       - web_kitikon
   nginx:
     image: nginx:stable-alpine
-    container_name: lemp_nginx
+    container_name: lemp_nginx03
     volumes:
       - ./public_html/:/var/www/html
       - ./nginx/conf/nginx.conf:/etc/nginx/conf/nginx.conf:ro
